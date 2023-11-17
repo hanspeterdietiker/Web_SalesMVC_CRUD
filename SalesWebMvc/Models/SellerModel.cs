@@ -9,6 +9,8 @@ public class SellerModel
     public double BaseSalary { get; set; }
     public DepartmentModel Department { get; set; }
 
+    public int DepartmentId { get; set; }
+
     public ICollection<SalesRecordModel> Sales { get; set; } = new List<SalesRecordModel>();
 
     public SellerModel()
