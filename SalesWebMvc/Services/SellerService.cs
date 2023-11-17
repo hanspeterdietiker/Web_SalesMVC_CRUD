@@ -10,9 +10,15 @@ public class SellerService
     {
         _context = context;
     }
+    
     public  List<SellerModel> FindAll()
     {
         return _context.Seller.ToList();
     }
-    
+
+    public void Insert(SellerModel seller)
+    {
+        _context.Add(seller);
+        _context.SaveChanges();
+    }
 }
