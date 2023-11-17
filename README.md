@@ -1,9 +1,16 @@
 # SalesMVC_CRUD
 
 ### • Vendedor
-
+_Criar Vendedor (Nome, Email, Data De Aniversario, Salario Base, Tem um Departamento)_
+_Listar Vendedor_
+_Atualizar Vendedor_
+_Deletar Vendedor por ID_
 
 ### • Department
+_Criar Departamento_ (Nome, Tem * Vendedores)_
+_Listar Departamentos_
+_Atualizar Departamentos_
+_Deletar Departamentos_
 
 #
 ### Tecnologias utilizadas: 
