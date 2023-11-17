@@ -16,6 +16,7 @@
     <ItemGroup>
       <Compile Remove="Views\Home\About.cshtml.cs" />
       <Compile Remove="Models\DepartamentModel.cs" />
+      <Compile Remove="Startup.cs" />
     </ItemGroup>
 
     <ItemGroup>

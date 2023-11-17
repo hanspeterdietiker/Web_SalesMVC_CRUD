@@ -15,11 +15,13 @@ public class SalesRecordModel
     {
         
     }
-    public SalesRecordModel(int id, DateTime date, double amount, SaleStatusModel statusModel)
+
+    public SalesRecordModel(int id, DateTime date, double amount, SaleStatusModel statusModel, SellerModel seller)
     {
         Id = id;
         Date = date;
         Amount = amount;
         StatusModel = statusModel;
+        Seller = seller;
     }
 }

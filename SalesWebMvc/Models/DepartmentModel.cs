@@ -7,6 +7,10 @@ public class DepartmentModel
 
     public ICollection<SellerModel> Sellers { get; set; } = new List<SellerModel>();
 
+    public DepartmentModel()
+    {
+        
+    }
     public DepartmentModel(int id, string name)
     {
         Id = id;
