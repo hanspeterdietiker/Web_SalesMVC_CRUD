@@ -1,5 +1,4 @@
-+203,,
-0+3# SalesMVC_CRUD
+# SalesMVC_CRUD
 
 ### • Seller
 _Criar Vendedor (Nome, Email, Data De Aniversario, Salario Base, Tem um Departamento)_
