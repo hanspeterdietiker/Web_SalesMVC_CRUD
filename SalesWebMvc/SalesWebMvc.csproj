@@ -11,11 +11,14 @@
       <Content Include="..\.dockerignore">
         <Link>.dockerignore</Link>
       </Content>
+      <Content Remove="Extensions\**" />
+      <Content Remove="wwwroot\api-doc.xml" />
     </ItemGroup>
 
     <ItemGroup>
       <Compile Remove="Views\Home\About.cshtml.cs" />
       <Compile Remove="Models\DepartamentModel.cs" />
+      <Compile Remove="Extensions\**" />
     </ItemGroup>
 
     <ItemGroup>
@@ -29,6 +32,14 @@
       <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="6.5.0" />
       <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="6.5.0" />
       <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="6.5.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Remove="Extensions\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="Extensions\**" />
     </ItemGroup>
 
 </Project>
