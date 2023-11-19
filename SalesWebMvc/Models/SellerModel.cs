@@ -26,7 +26,8 @@ public class SellerModel
     public double BaseSalary { get; set; }
 
     public DepartmentModel Department { get; set; }
-
+    
+    [Required(ErrorMessage = "Informe o {0}")]
     [Display(Name = "Department Id")] public int DepartmentId { get; set; }
 
     public ICollection<SalesRecordModel> Sales { get; set; } = new List<SalesRecordModel>();
@@ -36,7 +37,7 @@ public class SellerModel
     }
 
     public SellerModel(int id, string name, string email, DateTime birthDate, double baseSalary,
-        DepartmentModel department)
+        DepartmentModel department )
     {
         Id = id;
         Name = name;

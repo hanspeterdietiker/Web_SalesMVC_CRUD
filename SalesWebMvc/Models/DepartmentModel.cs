@@ -4,7 +4,6 @@ public class DepartmentModel
 {
     public int Id { get; set; }
     public string Name { get; set; }
-
     public ICollection<SellerModel> Sellers { get; set; } = new List<SellerModel>();
 
     public DepartmentModel()
