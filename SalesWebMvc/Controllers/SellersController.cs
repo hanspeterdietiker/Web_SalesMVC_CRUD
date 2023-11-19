@@ -42,7 +42,7 @@ namespace SalesWebMvc.Controllers
                 return View(viewModel);
             }
 
-             await _sellerService.InsertAsync(seller);
+            await _sellerService.InsertAsync(seller);
             return RedirectToAction(nameof(Index));
         }
 
@@ -66,8 +66,15 @@ namespace SalesWebMvc.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Delete(int id)
         {
-            await _sellerService.RemoveAsync(id);
-            return RedirectToAction(nameof(Index));
+            try
+            {
+                await _sellerService.RemoveAsync(id);
+                return RedirectToAction(nameof(Index));
+            }
+            catch (IntegrityException e)
+            {
+                return RedirectToAction(nameof(Error), new { message = e.Message });
+            }
         }
 
         public async Task<IActionResult> Edit(int? id)
@@ -85,9 +92,9 @@ namespace SalesWebMvc.Controllers
 
             List<DepartmentModel> departments = await _departmentService.FindAllAsync();
             SellerFormViewModel viewModel = new SellerFormViewModel { Seller = obj, Departments = departments };
-            
+
             return View(viewModel);
-        } 
+        }
 
         public async Task<IActionResult> Details(int? id)
         {
