@@ -13,34 +13,35 @@ public class SellerService
         _context = context;
     }
 
-    public List<SellerModel> FindAll()
+    public async Task<List<SellerModel>> FindAllAsync()
     {
-        return _context.Seller.ToList();
+        return  await _context.Seller.ToListAsync();
     }
 
-    public void Insert(SellerModel seller)
+    public  async Task InsertAsync(SellerModel seller)
     {
         _context.Add(seller);
-        _context.SaveChanges();
+       await _context.SaveChangesAsync();
     }
 
-    public SellerModel FindById(int id)
+    public async Task<SellerModel> FindByIdAsync(int id)
     {
-        return _context.Seller
+        return  await _context.Seller
             .Include(obj => obj.Department)
-            .FirstOrDefault(obj => obj.Id == id);
+            .FirstOrDefaultAsync(obj => obj.Id == id);
     }
 
-    public void Remove(int id)
+    public async Task RemoveAsync(int id)
     {
-        var obj = _context.Seller.Find(id);
+        var obj = await _context.Seller.FindAsync(id);
         _context.Seller.Remove(obj);
-        _context.SaveChanges();
+       await _context.SaveChangesAsync();
     }
 
-    public void Update(SellerModel obj)
+    public async Task UpdateAsync(SellerModel obj)
     {
-        if (!_context.Seller.Any(x => x.Id == obj.Id))
+        bool hasAny = await _context.Seller.AnyAsync(x => x.Id == obj.Id);
+        if (!hasAny)
         {
             throw new NotFoundException("Id não encontrada");
         }
@@ -48,7 +49,7 @@ public class SellerService
         try
         {
             _context.Update(obj);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
         }
         catch (DbConcurrencyException e)
         {
