@@ -20,6 +20,8 @@ builder.Services.AddScoped<SellerService>();
 
 builder.Services.AddScoped<DepartmentService>();
 
+builder.Services.AddScoped<SalesRecordService>();
+
 var app = builder.Build();
 var enUs = new CultureInfo("en-Us");
 var localizationOption = new RequestLocalizationOptions
